@@ -5,6 +5,8 @@
   "private": true,
   "dependencies": {
     "chance": "*",
-    "crawler": "*"
+    "crawler": "*",
+    "say": "*",
+    "thesaurus": "*"
   }
 }
