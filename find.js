@@ -24,7 +24,7 @@ var cr = new Crawler({
         // TODO: Abstract this out to a stragegy pattern for different services response to be parsed
         if (result.body.indexOf("ComAvailable")!= -1) { // domaintyper.com service parsing
             result.body = JSON.parse(result.body);
-            result.body = (result.body.ComAvailable) ? -1 : "Taken";
+            result.body = (result.body.ComAvailable=="True") ? -1 : "Taken";
         }
 
         if (result.body === -1) {
