@@ -28,7 +28,7 @@ var cr = new Crawler({
         }
 
         if (result.body === -1) {
-            console.log(domain + ".com is available!");
+            console.log(domain + ".io is available!");
             // Try to reduce overlap of speech even though asynchronous
             setTimeout(function(){
                 Say.speak((Math.random() < 0.5 ? 'Victoria':'Alex'), domain);
@@ -52,7 +52,7 @@ var th = Thesaurus.load("./th_en_US_new.dat");
 // Number of tries
 var chances = 100;
 // Domain options
-var domain_options = {length:5, withThesaurus:true};
+var domain_options = {length:5, withThesaurus:true}; // 4-letter .com domains are hard to come by in 2016
 
 /**
  *  Loop
@@ -62,8 +62,8 @@ for (var i = 0; i < chances; i++) {
     // Alternate randomly between different services
     // TODO: Abstract this into a separate Adapter class essentially to load balance and avoid IP banning if any
     if (Math.random() < 0.5) {
-        cr.queue("http://www.domainnamesoup.com/cell.php?domain=" + domain_candidate + ".com");
+        cr.queue("http://www.domainnamesoup.com/cell.php?domain=" + domain_candidate + ".io");
     } else {
-        cr.queue("https://domaintyper.com/DomainCheckHandler.ashx?domain=" + domain_candidate + ".com");
+        cr.queue("https://domaintyper.com/DomainCheckHandler.ashx?domain=" + domain_candidate + ".io");
     }
 }
